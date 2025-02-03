@@ -1,0 +1,151 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.headings{
+    font-weight: bold;
+    margin: 2rem 0;
+    color: v.$negro;
+    margin: 2rem 0 3rem 0;
+    text-align: center;
+}
+
+.acciones{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    .btn-enlace{
+        background-color: v.$azul;
+        padding: 1.5rem 4rem;
+        color: v.$blanco;
+        font-size: 1.6rem;
+        display: inline-block;
+        font-weight: 700;
+        border: none;
+        transition-property: background-color;
+        transition-duration: .3s;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        border-radius: 5px;
+        &:hover {
+            background-color: lighten( v.$azul, 30 );
+            cursor: pointer;
+        }
+    }
+}
+
+.tabla{
+    width: 80%;
+    border-collapse: collapse;
+    font-size: 2rem;
+    font-weight: 800;
+    //-webkit-text-stroke: 0.8px rgb(0, 0, 0);
+    th{
+        background-color: #6b6b6b;
+        text-transform: uppercase;
+    }
+    th{
+        padding: 1rem;
+    }
+    tr{
+        &:nth-child(even){
+            background-color: #9c9c9c;
+        }
+    }
+    td{
+        padding: 2rem 2rem;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .atendida{
+        color: v.$verde;
+        padding: 1rem 2rem;
+    }
+    .cancelada{
+        color: v.$rojo;
+        padding: 1rem 2rem;
+    }
+    .pendiente{
+        color: v.$azul;
+        padding: 1rem 2rem;
+    }
+
+    .btn-eliminar{
+        background-color: v.$rojo;
+        padding: 1.5rem 4rem;
+        color: v.$blanco;
+        font-size: 1.6rem;
+        display: inline-block;
+        font-weight: 700;
+        border: none;
+        transition-property: background-color;
+        transition-duration: .3s;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        border-radius: 5px;
+        &:hover {
+            background-color: lighten( v.$azul, 30 );
+            cursor: pointer;
+        }
+    }
+}
+
+.contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .formulario{
+        width: 60rem;
+    
+        .formulario-campo{
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            width: 20rem;
+        }
+    
+        fieldset{
+            margin-top: 1rem;
+            padding: 0;
+        }
+        legend{
+            color: v.$negro;
+            font-size: 2rem;
+        }
+        label{
+            display: block;
+            font-size: 1.8rem;
+            color: v.$negro;
+        }
+        select{
+            padding: 1rem;
+            border: 1px solid v.$negro;
+            border-radius: 5px;
+        }
+        .btn-enviar{
+            background-color: v.$azul;
+            padding: 1.5rem 4rem;
+            color: v.$blanco;
+            font-size: 1.6rem;
+            display: inline-block;
+            font-weight: 700;
+            border: none;
+            transition-property: background-color;
+            transition-duration: .3s;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            border-radius: 5px;
+            &:hover {
+                background-color: lighten( v.$azul, 30 );
+                cursor: pointer;
+            }
+        }
+    }
+    
+    
+}
+
