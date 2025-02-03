@@ -1,0 +1,15 @@
+{
+    "name": "manuelnunez/prueba-usco",
+    "description": "Prueba de desarrollador php usco",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    }
+}
