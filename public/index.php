@@ -24,6 +24,7 @@ $router->get('/medico', [MedicoController::class, 'index']);
 
 //API
 $router->get('/api/citas', [ApiController::class, 'citas']);
+$router->post('/api/citas/eliminar', [ApiController::class, 'eliminarCita']);
 
 
 
