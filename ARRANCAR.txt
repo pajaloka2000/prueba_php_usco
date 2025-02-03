@@ -1,0 +1,4 @@
+1. instalar dependencias de composer: composer update
+2. instalar dependencias de node: npm install
+3. acceder a la caperta public: cd public
+4. iniciar en el servidor local (con los servicios inatlados): php -S localhost:3000
