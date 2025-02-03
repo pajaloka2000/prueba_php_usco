@@ -23,6 +23,27 @@ class ApiController{
         echo json_encode($citas);
         
     }
+
+    public static function eliminarCita() {
+        // Obtener el ID de la cita desde la solicitud
+        $id = $_POST['id'] ?? null;
+
+        echo $_POST;
+
+        if ($id) {
+            // Buscar la cita en la base de datos
+            $cita = Cita::find($id);
+
+            if ($cita) {
+                // Eliminar la cita
+                $cita->eliminar();
+
+                // Responder con éxito
+                echo json_encode(['success' => true]);
+            }
+        }
+    }
+    
 }
 
 

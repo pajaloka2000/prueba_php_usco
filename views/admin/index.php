@@ -1,9 +1,11 @@
-<h1><?php echo $titulo;?></h1>
+<h2 class="headings"><?php echo $titulo;?></h2>
 
-<a href="/admin/crear/cita" class="btn btn-primary">Crear Cita</a>
+<div class="acciones">
+    <a href="/admin/crear/cita" class="btn-enlace">Crear Cita</a>
+</div>
 
 <h3>Citas:</h3>
-<table>
+<table class="tabla">
     <thead>
         <tr>
             <th>estudiante</th>
@@ -13,6 +15,7 @@
             <th>fecha</th>
             <th>hora</th>
             <th>Estado</th>
+            <th>Accion</th>
         </tr>
     </thead>
     <tbody class="tbody" id="tbody-citas">

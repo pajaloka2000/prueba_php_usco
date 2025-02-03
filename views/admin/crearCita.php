@@ -1,14 +1,18 @@
-<h2><?php echo $titulo;?></h2>
+<h2 class="headings"><?php echo $titulo;?></h2>
 
-<a href="/admin/crear/estudiante" class="btn btn-primary">Crear Estudiante</a>
-<a href="/admin/crear/medico" class="btn btn-primary">Crear Medico</a>
+<div class="acciones">
+    <a href="/admin" class="btn-enlace">Volver</a>
+    <a href="/admin/crear/estudiante" class="btn-enlace">Crear Estudiante</a>
+    <a href="/admin/crear/medico" class="btn-enlace">Crear Medico</a>
+</div>
 
 
-<div class="formulario">
 
-    <form method="post">
+<div class="contenedor">
+
+    <form method="post" class="formulario">
         <fieldset>
-            <legend>Inforacion de la cita:</legend>
+            <legend>Informacion de la cita:</legend>
 
             <div class="formulario-campo">
                 <label for="">Estudiante: </label>
@@ -47,7 +51,7 @@
                 </select>
             </div>
 
-            <input type="submit" value="Crear Cita" class="btn">
+            <input type="submit" value="Crear Cita" class="btn-enviar">
             
         </fieldset>
         

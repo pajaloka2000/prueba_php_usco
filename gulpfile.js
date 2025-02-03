@@ -1,34 +1,41 @@
-import { src, dest, watch, series } from 'gulp'
-import * as dartSass from 'sass'
-import gulpSass from 'gulp-sass'
-import terser from 'gulp-terser'
-
-const sass = gulpSass(dartSass)
+const { src, dest, watch , parallel } = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
+const autoprefixer = require('autoprefixer');
+const postcss    = require('gulp-postcss')
+const sourcemaps = require('gulp-sourcemaps')
+const cssnano = require('cssnano');
+const terser = require('gulp-terser-js');
 
 const paths = {
     scss: 'src/scss/**/*.scss',
-    js: 'src/js/**/*.js'
+    js: 'src/js/**/*.js',
+    imagenes: 'src/img/**/*'
 }
 
-export function css( done ) {
-    src(paths.scss, {sourcemaps: true})
-        .pipe( sass({
-            outputStyle: 'compressed'
-        }).on('error', sass.logError) )
-        .pipe( dest('./public/build/css', {sourcemaps: '.'}) );
-    done()
+function css() {
+    return src(paths.scss)
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(postcss([autoprefixer(), cssnano()]))
+        // .pipe(postcss([autoprefixer()]))
+        .pipe(sourcemaps.write('.'))
+        .pipe( dest('public/build/css') );
 }
 
-export function js( done ) {
-    src(paths.js)
+
+function javascript() {
+    return src(paths.js)
       .pipe(terser())
-      .pipe(dest('./public/build/js'))
-    done()
+      .pipe(sourcemaps.write('.'))
+      .pipe(dest('public/build/js'));
 }
 
-export function dev() {
+function watchArchivos() {
     watch( paths.scss, css );
-    watch( paths.js, js );
+    watch( paths.js, javascript );
 }
-
-export default series( js, css, dev )
+  
+exports.css = css;
+exports.javascript = javascript;
+exports.watchArchivos = watchArchivos;
+exports.default = parallel(css, javascript, watchArchivos );
